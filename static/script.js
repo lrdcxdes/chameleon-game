@@ -46,7 +46,14 @@ function connectWebSocket() {
         errorMessage.textContent = "Имя и код комнаты не могут быть пустыми.";
         return;
     }
-    const wsUrl = `wss://chameleon-game-liv8.onrender.com/ws/${roomCode}/${playerName}`;
+    const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    let domain = window.location.hostname;
+    if (wsProtocol === 'wss:') {
+        domain = 'chameleon-game-liv8.onrender.com';
+    } else {
+        domain = 'localhost:8000'; // Для локальной разработки
+    }
+    const wsUrl = `${wsProtocol}//${domain}/ws/${roomCode}/${playerName}`;
     socket = new WebSocket(wsUrl);
 
     socket.onopen = () => {
