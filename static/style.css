@@ -1,0 +1,115 @@
+/* static/style.css */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #000000;
+    color: #FFFFFF;
+    font-family: 'Consolas', 'Courier New', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 16px;
+}
+#main-container {
+    width: 100%;
+    max-width: 800px;
+    border: 1px solid #fff;
+    padding: 20px;
+}
+h1, h2, h3 {
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+input[type="text"] {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+    font-family: inherit;
+    font-size: 1em;
+}
+button {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 10px 15px;
+    font-family: inherit;
+    font-size: 1em;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.2s, color 0.2s;
+    width: 100%;
+}
+button:hover {
+    background-color: #fff;
+    color: #000;
+}
+button.toggled {
+    background-color: #004d00;
+    border-color: #00cc00;
+    color: #fff;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+.error {
+    color: #ff4d4d;
+    margin-top: 10px;
+    text-align: center;
+}
+.hidden { display: none !important; }
+
+#game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+#timer-display {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+#game-board { display: flex; gap: 20px; }
+#player-list-container {
+    flex: 1;
+    border-right: 1px solid #fff;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+#game-info { flex: 3; }
+#player-list { list-style-type: none; margin-bottom: 20px; flex-grow: 1; }
+#player-list li.ready::after {
+    content: '[R]';
+    color: #00ff00;
+    margin-left: 10px;
+}
+#player-list li.voted::after {
+    content: '[V]';
+    color: #ffff00;
+    margin-left: 10px;
+}
+#association-list { list-style: none; }
+#association-list-container { margin-top: 20px; }
+#vote-buttons button { margin: 5px; width: auto; }
+#reveal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex; justify-content: center; align-items: center; text-align: center;
+    padding: 20px;
+}
+#reveal-content { border: 1px solid #fff; padding: 40px; background: #000; }
+#reveal-content h2 { font-size: 2em; }
+#reveal-content p { margin-top: 15px; font-size: 1.2em; }
