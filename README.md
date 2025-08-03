@@ -65,7 +65,8 @@ pip install -r requirements.txt
 The FastAPI server uses `uvicorn` to run.
 
 ```bash
-uvicorn main:app --reload```
+uvicorn main:app --reload
+```
 
 This will start the server on `http://127.0.0.1:8000`. The `--reload` flag means the server will automatically restart when you make changes to the code.
 
